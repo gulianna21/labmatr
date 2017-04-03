@@ -20,12 +20,16 @@ void main()
   for (i = 0; i < 5; i++)
     for (j = i; j < 5; j++ )
     {
-      a[i][j] =  i * 10 + j;
-      b[i][j] = (i * 10 + j) * 100;
+      a[i][j] =  i * 10 + j+1;
+      b[i][j] = (i * 10 + j+1) * 100;
     }
+  TVector<int> aa(2);
+  TVector<int> bb(2);
+  
   c = a + b;
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
   cout << "Matrix c = a + b" << endl << c << endl;
+  cin.get();
 }
 //---------------------------------------------------------------------------
