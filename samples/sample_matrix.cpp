@@ -11,6 +11,7 @@
 
 void main()
 {
+
   TMatrix<double> a(5), b(5), c(5), d(5);
   int i, j;
 
@@ -25,11 +26,11 @@ void main()
     }
   
  // c = a + b;
-//  d = a / a;
+  d = a / a;
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
 //  cout << "Matrix c = a + b" << endl << c << endl;
- // cout << "Matrix d = a / a" << endl << d << endl;
+  cout << "Matrix d = a / a" << endl << d << endl;
   cin.get();
 }
 //---------------------------------------------------------------------------
