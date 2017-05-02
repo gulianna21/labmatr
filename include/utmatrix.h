@@ -62,7 +62,7 @@ public:
 		{
 			out << ValType() << ' ';
 		}
-		for (int i = 0; i < v.Size - v.StartIndex; i++)
+		for (int i = v.StartIndex; i < v.Size; i++)
 			out << v.pVector[i] << /*out.width(5) <<*/ ' ';
 		return out;
 	}
@@ -112,7 +112,7 @@ ValType& TVector<ValType>::operator[](int pos)
 	}
 	if (pos - StartIndex >= Size - StartIndex /*|| */)
 		throw BADINDEX;
-	return pVector[pos - StartIndex];
+	return pVector[pos];
 }
 
 template <class ValType> // сравнение
