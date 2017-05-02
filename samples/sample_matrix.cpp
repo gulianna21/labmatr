@@ -11,7 +11,7 @@
 
 void main()
 {
-  TMatrix<int> a(5), b(5), c(5);
+  TMatrix<double> a(5), b(5), c(5), d(5);
   int i, j;
 
   setlocale(LC_ALL, "Russian");
@@ -23,13 +23,13 @@ void main()
       a[i][j] =  i * 10 + j+1;
       b[i][j] = (i * 10 + j+1) * 100;
     }
-  TVector<int> aa(2);
-  TVector<int> bb(2);
   
-  c = a + b;
+ // c = a + b;
+//  d = a / a;
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
-  cout << "Matrix c = a + b" << endl << c << endl;
+//  cout << "Matrix c = a + b" << endl << c << endl;
+ // cout << "Matrix d = a / a" << endl << d << endl;
   cin.get();
 }
 //---------------------------------------------------------------------------
