@@ -62,7 +62,7 @@ public:
 		{
 			out << ValType() << ' ';
 		}
-		for (int i = v.StartIndex; i < v.Size; i++)
+		for (int i = 0; i < v.Size - v.StartIndex; i++)
 			out << v.pVector[i] << /*out.width(5) <<*/ ' ';
 		return out;
 	}
@@ -112,7 +112,7 @@ ValType& TVector<ValType>::operator[](int pos)
 	}
 	if (pos - StartIndex >= Size - StartIndex /*|| */)
 		throw BADINDEX;
-	return pVector[pos];
+	return pVector[pos - StartIndex];
 }
 
 template <class ValType> // сравнение
@@ -276,6 +276,7 @@ TMatrix<ValType> TMatrix<ValType>::inventory()
 {
 	TMatrix<ValType> temp(*this);
 	TMatrix<ValType> temp1(Size);
+	
 	for (size_t i = 0; i < Size; i++)
 	{
 		temp1[i][i] = 1;
@@ -318,7 +319,11 @@ template <class ValType>
 TMatrix<ValType> TMatrix<ValType>::operator/(const TMatrix &m)
 {
 	TMatrix<ValType> temp(m);
-	ValType y = ValType();
+	ValType y = 1;
+	for (int i = 0; i < m.Size; i++)
+		y *= m.pVector[i][i];
+	if (y == 0)
+		throw 7;
 
 	temp = temp.inventory();
 	TMatrix<ValType> temp1(*this);
